@@ -2,12 +2,16 @@ FROM node:18-alpine
 
 WORKDIR /app/spa-react
 
+
 COPY package*.json ./
 
-RUN rm -rf node_modules
-RUN npm install
+COPY vite*.ts ./
 
 COPY . .
+
+RUN rm -rf node_modules
+# RUN npm install -g vite
+RUN npm install
 
 EXPOSE 5137
 
